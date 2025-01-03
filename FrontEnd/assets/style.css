@@ -186,3 +186,32 @@ footer nav ul {
 	margin: 2em
 }
 
+
+/* ajout */
+
+.divFilter {
+	display: flex;
+	width: 45%;
+	justify-content: space-evenly;
+	margin: 0 auto;
+	margin-bottom: 50px;
+	margin-top: 50px;
+	font-family: 'Syne';
+	color: #1D6154 ;
+	font-size: 14px;
+	
+}
+
+.divFilter > * {
+	border: 1px solid #1D6154;
+	padding: 10px;
+	border-radius: 60px;
+	cursor: pointer;
+}
+
+.divFilter > *.active {
+	background-color: #1D6154;
+	color: white;
+	border-color: #1D6154;
+}
+
