@@ -1,4 +1,7 @@
 // Récupérer les travaux
+
+console.log(localStorage.getItem("token"));
+
 async function getWorks() {
   const url = "http://localhost:5678/api/works";
   try {
@@ -88,4 +91,10 @@ function setFilter(data) {
   });
 
   document.querySelector(".divFilter").append(div);
+}
+
+function activeAdmin() {
+  if (localStorage.authToken) {
+    console.log("adminON");
+  }
 }
