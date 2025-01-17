@@ -1,5 +1,6 @@
 const loginApi = "http://localhost:5678/api/users/login";  //variable qui me permet où envoyer l'email et le mdp
 
+document.addEventListener("DOMContentLoaded", () => {
 document.getElementById("loginForm").addEventListener("submit", handleSubmit);  //quand je clique sur le bouton envoyer on va appeler la fct handlesubmit, prendre l'info ecrite et l'envoyer
 
 async function handleSubmit(event) {      //executer le form    
@@ -23,17 +24,17 @@ async function handleSubmit(event) {      //executer le form
         error.innerHTML = "Mot de passe ou Mail incorrect";
         document.querySelector("form").prepend(error);
     } else {
-        
-    
 
     let result = await response.json();                 //recupere la reponse de l'API
     console.log(result);
 
     const token = result.token;         //stockage du token quand on réussi à se connecter
     localStorage.setItem("token", token);
-    console.log(localStorage.getItem("token"));
+    console.log("Token :", token);
     
 
     window.location.href = "index.html";    //redirection sur la page index
     }
 }
+
+});

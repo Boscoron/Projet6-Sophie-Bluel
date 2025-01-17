@@ -1,7 +1,7 @@
 // Récupérer les travaux
 
-console.log(localStorage.getItem("token"));
-
+//console.log(localStorage.getItem("token"));
+document.addEventListener("DOMContentLoaded", () => {
 async function getWorks() {
   const url = "http://localhost:5678/api/works";
   try {
@@ -94,7 +94,18 @@ function setFilter(data) {
 }
 
 function activeAdmin() {
-  if (localStorage.authToken) {
-    console.log("adminON");
+  const token = localStorage.getItem("token"); // Récupération du token
+  if (token) {
+    console.log("Token détecté :", token);
+
+    // activation du visuel editMod
+    const editMod = document.createElement("div");
+    editMod.className = "editMod";
+    editMod.innerHTML = '<p><i class="fa-regular fa-pen-to-square"></i> Mode édition activé</p>';
+    document.body.prepend(editMod);
   }
 }
+
+activeAdmin();
+
+});
